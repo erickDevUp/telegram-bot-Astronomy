@@ -1,3 +1,9 @@
+import express from "express";
+
+const app = express();
+
+
+
 const { default: axios } = require("axios");
 const Parser = require("rss-parser");
 let parser = new Parser();
@@ -7,6 +13,11 @@ const { Telegraf } = require("telegraf");
 const { message } = require("telegraf/filters");
 
 const bot = new Telegraf("6092909492:AAHBFwlrfjTDsG8dezYnWZM8P3psnZlli48");
+
+
+app.use(await bot.createWebhook({ domain: webhookDomain }));
+
+
 bot.start((ctx) => ctx.reply("⭐Welcome  " + ctx.from.first_name+"\n\n🪐 Hi there! I can help you with that. Here is a brief description for a Telegram bot that shows you astronomy photos and news every day:\n\nThis bot offers a daily dose of astronomy by sending you a breathtaking photo of space along with some interesting news about the field. Each day, you will receive a new photo and news article to keep you informed and inspired. The bot is perfect for anyone interested in astronomy, space exploration and the wonders of the universe. Never miss out on the latest developments in astronomy again - let this bot keep you up to date and inspired every day!\n\n commands : \n\n/pic: get the Astronomy Picture of the Day\n\n /news: get the most important news of the day "));
 bot.on(message("sticker"), (ctx) => ctx.reply("🪐"));
 
@@ -55,3 +66,8 @@ const getIMG = async () => {
 
   return await `🌑🌒🌓🌔🌕🌖🌗🌘🌑 \n\ndate: ${res.data.date} ⏰\n\nname: ${res.data.title} 😁\n\nurl: 📎 ${res.data.url} 📎 \n\n🧠 ${res.data.explanation}🧠\n\n🪐⭐`;
 };
+
+
+
+
+app.listen(port, () => console.log("Listening on port", port));
