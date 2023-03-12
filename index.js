@@ -11,7 +11,6 @@ const bot = new Telegraf("6092909492:AAHBFwlrfjTDsG8dezYnWZM8P3psnZlli48");
 const RSS_URL = `https://www.space.com/feeds/all`;
 
 bot.start(async (ctx) => {
-  const job = true;
   ctx.reply(
     "⭐Welcome  " +
       ctx.from.first_name +
@@ -23,12 +22,7 @@ bot.start(async (ctx) => {
     await getNews(ctx);
     ctx.reply("pic of the day:\n\n" + (await getIMG()));
   };
-  await working()
-  do {
-    setTimeout(async()=>await working(), 86400000);
-  } while (job);
-
-});
+  
 
 bot.on(message("sticker"), (ctx) => ctx.reply("🪐"));
 
