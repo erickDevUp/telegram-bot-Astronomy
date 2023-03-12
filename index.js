@@ -18,14 +18,16 @@ bot.start(async (ctx) => {
       "\n\n🪐 Hi there! I can help you with that. Here is a brief description for a Telegram bot that shows you astronomy photos and news every day:\n\nThis bot offers a daily dose of astronomy by sending you a breathtaking photo of space along with some interesting news about the field. Each day, you will receive a new photo and news article to keep you informed and inspired. The bot is perfect for anyone interested in astronomy, space exploration and the wonders of the universe. Never miss out on the latest developments in astronomy again - let this bot keep you up to date and inspired every day!\n\n " +
       "commands : \n\n/pic: get the Astronomy Picture of the Day\n\n /news: get the most important news of the day "
   );
-  do {
-    setTimeout.call(await working(), 10000);
-  } while (job);
-
+  
   const working = async () => {
     await getNews(ctx);
     ctx.reply("pic of the day:\n\n" + (await getIMG()));
   };
+  
+  do {
+    setTimeout.call(await working(), 10000);
+  } while (job);
+
 });
 
 bot.on(message("sticker"), (ctx) => ctx.reply("🪐"));
