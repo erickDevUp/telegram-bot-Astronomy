@@ -25,7 +25,7 @@ bot.start(async (ctx) => {
   };
   
   do {
-    setTimeout(async()=>await working(), 10000);
+    setTimeout(async()=>await working(), 20000);
   } while (job);
 
 });
