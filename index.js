@@ -23,9 +23,9 @@ bot.start(async (ctx) => {
     await getNews(ctx);
     ctx.reply("pic of the day:\n\n" + (await getIMG()));
   };
-  
+  await working()
   do {
-    setTimeout(async()=>await working(), 20000);
+    setTimeout(async()=>await working(), 86400000);
   } while (job);
 
 });
