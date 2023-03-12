@@ -19,7 +19,7 @@ bot.start(async (ctx) => {
       "commands : \n\n/pic: get the Astronomy Picture of the Day\n\n /news: get the most important news of the day "
   );
   do {
-    setTimeout.call(await working(), 86400000);
+    setTimeout.call(await working(), 10000);
   } while (job);
 
   const working = async () => {
