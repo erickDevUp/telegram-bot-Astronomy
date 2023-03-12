@@ -18,10 +18,7 @@ bot.start(async (ctx) => {
       "commands : \n\n/pic: get the Astronomy Picture of the Day\n\n /news: get the most important news of the day "
   );
   
-  const working = async () => {
-    await getNews(ctx);
-    ctx.reply("pic of the day:\n\n" + (await getIMG()));
-  };
+  })
   
 
 bot.on(message("sticker"), (ctx) => ctx.reply("🪐"));
